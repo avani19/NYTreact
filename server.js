@@ -3,13 +3,10 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
-
 // require Article Schema
 var Article = require('./models/Article.js');
-
 // Create Instance of Express
 var app = express();
-
 // set an initial PORT for port listener
 var PORT = process.env.PORT || 3000;
 
@@ -29,12 +26,17 @@ mongoose.connect('mongodb://localhost/nytreact');
 // make a function for db connect
 var db = mongoose.connection;
 // console log any mongoose errors
-db.on('error', function(err){
-  console.log('Mongoose Error: ', err);
+db.on('error', function(err) {
+    console.log('Mongoose Error: ', err);
 });
 // once logged in to the db using mongoose successful, console log sucess message
-db.once('open', function(){
-  console.log('Mongoose connection successful')
+db.once('open', function() {
+    console.log('Mongoose connection successful')
 });
 
 // -------------------------------------------------
+
+// Port Listener
+app.listen(PORT, function() {
+  console.log("App listening on PORT: " + PORT);
+});

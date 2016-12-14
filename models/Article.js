@@ -2,7 +2,7 @@
 var mongoose = require('mongoose');
 // Create Schema class
 var Schema = mongoose.Schema;
-// create the Article Schema
+// create Article Schema
 var ArticleSchema = new Schema({
   // Title require
   title: {
@@ -20,7 +20,7 @@ var ArticleSchema = new Schema({
     required: true
   }
 });
-// create Article model with the ArticleSchema
+// create Article model with ArticleSchema
 var Article = mongoose.model('Article', ArticleSchema);
 // Export Model
 module.exports = Article;
